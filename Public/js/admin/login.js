@@ -22,7 +22,7 @@ var login={
 			}
 			if(result.status == 1){
 				//return dialog.error(result.message);
-				return dialog.success(result.mesasage,'/index.php?m=admin&c=index');
+				return dialog.success(result.message,'/index.php?m=admin&c=index');
 
 			}
 		},'JSON');
