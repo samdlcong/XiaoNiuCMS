@@ -2,7 +2,7 @@ var dialog = {
     // 错误弹出层
     error: function(message) {
         layer.open({
-            //skin: 'layui-layer-molv',
+            skin: 'layui-layer-molv',
             content:message,
             icon:2,
             title : '错误提示',
@@ -12,7 +12,7 @@ var dialog = {
     //成功弹出层
     success: function(message,url) {
         layer.open({
-            //skin: 'layui-layer-molv',
+            skin: 'layui-layer-molv',
             content : message,
             icon : 1,
             yes : function(){

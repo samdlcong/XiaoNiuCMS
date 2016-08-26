@@ -14,7 +14,7 @@ var login={
 			dialog.error('密码不能为空');
 		}
 
-		var url = "/index.php?m=admin&c=login&a=check";
+		var url = "/admin.php?c=login&a=check";
 		var data ={'username':username,'password':password};
 		$.post(url,data,function(result){
 			if(result.status == 0){
@@ -22,7 +22,7 @@ var login={
 			}
 			if(result.status == 1){
 				//return dialog.error(result.message);
-				return dialog.success(result.message,'/index.php?m=admin&c=index');
+				return dialog.success(result.message,'/admin.php?c=index');
 
 			}
 		},'JSON');

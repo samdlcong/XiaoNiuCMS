@@ -8,7 +8,9 @@ use Think\Controller;
 class LoginController extends Controller {
 
     public function index(){
-
+        if(session('adminUser')){
+            $this->redirect('/admin.php?c=index');
+        }
     	return $this->display();
     }
 
@@ -29,6 +31,12 @@ class LoginController extends Controller {
     		return show(0,'密码错误');
     	}
 
+        session('adminUser',$res);
     	return show(1,'登录成功');
-    }    
+    }  
+
+    public function logout(){
+        session('adminUser',null);
+        $this->redirect('/admin.php?c=login');
+    }  
 }
