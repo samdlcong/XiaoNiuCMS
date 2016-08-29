@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>sing后台管理平台</title>
+    <title>小牛CMS后台管理平台</title>
     <!-- Bootstrap Core CSS -->
     <link href="/Public/css/bootstrap.min.css" rel="stylesheet">
 
@@ -48,7 +48,7 @@
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     
-    <a class="navbar-brand" >singcms内容管理平台</a>
+    <a class="navbar-brand" >小牛CMS内容管理平台</a>
   </div>
   <!-- Top Menu Items -->
   <ul class="nav navbar-right top-nav">
@@ -72,10 +72,10 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav nav_list">
       <li >
-        <a href=""><i class="fa fa-fw fa-dashboard"></i> 首页</a>
+        <a href="/admin.php?c=index"><i class="fa fa-fw fa-dashboard"></i> 首页</a>
       </li>
       <li>
-        <a href=""><i class="fa fa-fw fa-bar-chart-o"></i>菜单管理</a>
+        <a href="/admin.php?c=menu"><i class="fa fa-fw fa-bar-chart-o"></i>菜单管理</a>
       </li>
 
     </ul>
@@ -91,7 +91,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    您好!欢迎使用singcms内容管理平台
+                    您好!欢迎使用小牛CMS内容管理平台
                 </h1>
                 <ol class="breadcrumb">
                     <li class="active">

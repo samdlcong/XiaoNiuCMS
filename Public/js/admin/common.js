@@ -17,5 +17,15 @@
  	$(data).each(function(i){
  		postData[this.name]=this.value;
  	});
- 	console.log(postData);
+ 	url=SCOPE.save_url;
+ 	jump_url = SCOPE.jump_url;
+ 	$.post(url,postData,function(result){
+ 		if(result.status == 1){
+ 			console.log('ok');
+ 			return dialog.success(result.message,jump_url);
+ 		}else if(result.status == 0){
+ 			//失败
+ 			return dialog.error(result.message);
+ 		}
+ 	},'JSON');
  });
