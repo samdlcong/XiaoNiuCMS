@@ -13,10 +13,12 @@
  
  $("#cms-button-submit").click(function(){
  	var data =$("#cms-form").serializeArray();
+
  	postData = {};
  	$(data).each(function(i){
  		postData[this.name]=this.value;
  	});
+ 	//console.log(postData);
  	url=SCOPE.save_url;
  	jump_url = SCOPE.jump_url;
  	$.post(url,postData,function(result){
@@ -28,4 +30,10 @@
  			return dialog.error(result.message);
  		}
  	},'JSON');
+ });
+
+ $(".xiaoniucms-table #xiaoniucms-edit").on('click',function(){
+ 	var id = $(this).attr('attr-id');
+ 	var url = SCOPE.edit_url+'&id='+id;
+ 	window.location.href=url;
  });

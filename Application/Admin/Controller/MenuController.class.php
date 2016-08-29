@@ -38,6 +38,10 @@ class MenuController extends CommonController{
 			if(!isset($_POST['f'])||!$_POST['f']){
 				return show(0,'方法名不能为空');
 			}
+			echo $_POST['menu_id'];exit();
+			if($_POST['menu_id']){
+				return $this->save($_POST);
+			}
 			$menuId = D("Menu")->insert($_POST);
 			//echo  $menuId;exit();
 			if($menuId){
@@ -50,5 +54,27 @@ class MenuController extends CommonController{
 		}		
 	}
 
+	public function edit(){
+		$menuId = $_GET['id'];
+		$menu = D("Menu")->find($menuId);
+		$this->assign('menu',$menu);
+		$this->display();
+	}
 	
+	public function save($data){
+		$menuId = $data['menu_id'];
+		echo $menuId;exit();
+		unset($data['menu_id']);
+		try{
+			$id = D("Menu")->updateMenuById($menuId,$data);
+			echo $id;exit();
+			if($id==false){
+				return show(0,'更新失败');
+			}
+			return show(1,'更新成功');
+		}catch(Exception $e){
+			return show(0,$e->getMessage());
+		}
+		
+	}
 }
