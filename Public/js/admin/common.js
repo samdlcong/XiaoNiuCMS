@@ -37,3 +37,41 @@
  	var url = SCOPE.edit_url+'&id='+id;
  	window.location.href=url;
  });
+
+ $(".xiaoniucms-table #xiaoniucms-delete").on('click',function(){
+ 	var id = $(this).attr('attr-id');
+ 	var a = $(this).attr("attr-a");
+ 	var message = $(this).attr("attr-message");
+ 	var url = SCOPE.set_status_url;
+
+ 	data = {};
+ 	data['id']=id;
+ 	data['status']= -1;
+
+ 	layer.open({
+ 		type : 0,
+ 		title:'是否提交? ',
+ 		btn:['yes','no'],
+ 		icon:3,
+ 		closeBtn:2,
+ 		content:"是否确定"+message,
+ 		scrollbar:true,
+ 		yes: function(){
+ 			todelete(url,data);
+ 		},
+ 	});
+ });
+
+ function todelete(url,data){
+ 	$.post(
+ 		url,
+ 		data,
+ 		function(s){
+ 			if(s.status ==1){
+ 				return dialog.success(s.message,'');
+ 			}else{
+ 				return dialog.error(s.message);
+ 			}
+ 		},
+ 	,"JSON");
+ }
