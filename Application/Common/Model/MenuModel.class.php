@@ -33,12 +33,12 @@ class MenuModel extends Model{
 	}
 
 	public function updateMenuByID($id,$data){
-		if(!$id||is_numeric($id)){
+		if(!$id||!is_numeric($id)){
 			throw_exception('ID不合法');
 		}
-		if(!$data ||is_array($data)){
+		if(!$data ||!is_array($data)){
 			throw_exception('更新数据不合法');
 		}
-		$this->_db->where('menu_id='.$id)->save($data);
+		return $this->_db->where('menu_id='.$id)->save($data);
 	}
 }
