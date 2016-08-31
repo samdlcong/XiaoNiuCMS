@@ -50,8 +50,9 @@
 
  	layer.open({
  		type : 0,
+ 		skin: 'layui-layer-molv',
  		title:'是否提交? ',
- 		btn:['yes','no'],
+ 		btn:['是','否'],
  		icon:3,
  		closeBtn:2,
  		content:"是否确定"+message,
@@ -72,6 +73,5 @@
  			}else{
  				return dialog.error(s.message);
  			}
- 		},
- 	,"JSON");
+ 		},"JSON");
  }
