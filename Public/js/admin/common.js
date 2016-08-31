@@ -23,7 +23,7 @@
  	jump_url = SCOPE.jump_url;
  	$.post(url,postData,function(result){
  		if(result.status == 1){
- 			console.log('ok');
+ 			//console.log('ok');
  			return dialog.success(result.message,jump_url);
  		}else if(result.status == 0){
  			//失败
@@ -75,3 +75,22 @@
  			}
  		},"JSON");
  }
+
+
+ $("#button-listorder").click(function(){
+ 	var data = $("#xucms-listorder").serializeArray();
+
+ 	postData = {};
+ 	$(data).each(function(i){
+ 		postData[this.name] = this.value;
+ 	});
+ 	url = SCOPE.listorder_url;
+ 	$.post(url,postData,function(result){
+ 		if(result.status ==1){
+ 			return dialog.success(result.message,result['data']['jumpUrl']);
+ 		}else if (result.status ==0){
+ 			return dialog.success(result.error);
+ 		}
+ 		//console.log(result);
+ 	},"JSON");
+ });

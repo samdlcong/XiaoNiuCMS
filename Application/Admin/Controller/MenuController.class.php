@@ -95,4 +95,29 @@ class MenuController extends CommonController{
 		}
 		return show(0,'没有提交数据');
 	}
+
+	public function listorder(){
+		//
+		$listorder = $_POST['listorder'];
+		$jumpUrl = $_SERVER['HTTP_REFERER'];
+		//print_r($jumpUrl);exit();
+		$errors =array();
+		if($listorder){
+			try{
+				foreach ($listorder as $menuId => $v) {
+					$id = D("Menu")->updateMenuListorderById($menuId,$v);
+					if($id===false){
+						$errors[]=$menuId;
+					}
+				}
+			}catch(Exception $e){
+				return show(0,$e->getMessage(),array('jumpUrl'=>$jumpUrl));
+			}
+			if($errors){
+				return show(0,'排序失败-'.implode(',', $errors),array('jumpUrl'=>$jumpUrl));
+			}
+			return show(1,'排序成功',array('jumpUrl'=>$jumpUrl));	
+		}
+		return show(0,'排序数据失败',array('jumpUrl'=>$jumpUrl));
+	}
 }
