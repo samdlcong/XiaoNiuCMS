@@ -29,3 +29,19 @@ function status($status){
 	}
 	return $str;
 }
+
+function getAdminMenuUrl($nav){
+	$url = '/admin/php?c='.$nav['c'].'&a='.$nav['f'];
+	if($nav['f']=='index'){
+		$url = '/admin.php?c='.$nav['c'];
+	}
+	return $url;
+}
+
+function getActive($navc){
+	$c =strtolower(CONTROLLER_NAME);
+	if(strtolower($navc)==$c){
+		return 'class="active"';
+	}
+	return '';
+}
