@@ -73,4 +73,31 @@ class MenuModel extends Model{
 		);
 		return $this->_db->where($data)->order('listorder desc,menu_id desc')->select();
 	}
+
+	public function getBarMenus(){
+		if($_POST){
+			if(!isset($_POST['title'])||!$_POST['title']){
+				return show(0,'文章标题不存在');
+			}
+			if(!isset($_POST['small_title'])||!$_POST['small_title']){
+				return show(0,'短标题不存在');
+			}
+			if(!isset($_POST['cat_id'])||!$_POST['cat_id']){
+				return show(0,'文章栏目不存在');
+			}
+			if(!isset($_POST['keywords'])||$_POST['keywords']){
+				return show(0,'关键词不存在');
+			}
+			if(!isset($_POST['content'])||$_POST['content']){
+				return show(0,'content不存在');
+			}
+		}else{
+			$data = array(
+			'status'=>array('neq',-1),
+			'type'=>0,
+			);
+			return $this->_db->where($data)->order('listorder desc,menu_id desc')->select();
+		}
+		
+	}
 }
