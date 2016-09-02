@@ -18,4 +18,11 @@ class NewsContentModel extends Model{
 		}
 		return $this->_db->add($data);
 	}
+
+	public function find($id){
+		if(!$id||!is_numeric($id)){
+			return 0;
+		}
+		return $this->_db->where('news_id='.$id)->find();
+	}
 }

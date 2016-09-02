@@ -78,7 +78,7 @@
 
 
  $("#button-listorder").click(function(){
- 	var data = $("#xucms-listorder").serializeArray();
+ 	var data = $("#xncms-listorder").serializeArray();
 
  	postData = {};
  	$(data).each(function(i){

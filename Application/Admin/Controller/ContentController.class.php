@@ -71,4 +71,27 @@ class ContentController extends CommonController{
 			$this->display();
 		}
 	}
+
+	public function edit(){
+		$newsId = $_GET['id'];
+		if(!$newsId){
+			$this->redirect('/admin.php?c=content');
+		}
+		$news = D('News')->find($newsId);
+		if(!$news){
+			$this->redirect('/admin.php?c=content');
+		}
+		$newsContent = D("NewsContent")->find($newsId);
+		if($newsContent){
+			$news['content']= $newsContent['content'];
+		}else{
+			$this->redirect('/admin.php?c=content');
+		}
+		$webSiteMenu = D("Menu")->getBarMenus();
+		$this->assign('webSiteMenu',$webSiteMenu);
+		$this->assign('titleFontColor',C('TITLE_FONT_COLOR'));
+		$this->assign('copyFrom',C('COPY_FROM'));
+		$this->assign('news',$news);
+		$this->display();
+	}
 }

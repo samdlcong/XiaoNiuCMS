@@ -41,4 +41,11 @@ class NewsModel extends Model{
 		$conditions['status'] = array('neq',-1);
 		return $this->_db->where($conditions)->count();
 	}
+
+	public function find($id){
+		if(!$id||!is_numeric($id)){
+			return 0;
+		}
+		return $this->_db->where('news_id='.$id)->find();
+	}
 }
