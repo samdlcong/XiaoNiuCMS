@@ -95,50 +95,27 @@
  	},"JSON");
  });
 
- // $(".xiaoniucms-table #xiaoniucms-on-off").on('click',function(){
- // 	var id = $(this).attr("attr-id");
- // 	var status =$(this).attr("attr-status");
- // 	var url = SCOPE.set_status_url;
- // 	data = {};
- // 	data['id']=id;
- // 	data['status']= status;
-	// console.log(data);
- // 	layer.open({
- // 		type : 0,
- // 		skin: 'layui-layer-molv',
- // 		title:'是否提交? ',
- // 		btn:['是','否'],
- // 		icon:3,
- // 		closeBtn:2,
- // 		content:"是否确定更改状态",
- // 		scrollbar:true,
- // 		yes: function(){
- // 			todelete(url,data);
- // 		},
- // 	});
- // });
+
 $(".xiaoniucms-table #xiaoniucms-on-off").on('click',function(){
- 	var id = $(this).attr('attr-id');
- 	console.log(id);
- 	var a = $(this).attr("attr-a");
- 	var message = $(this).attr("attr-message");
- 	var url = SCOPE.set_status_url;
+	var id = $(this).attr("attr-id");
+	var status = $(this).attr('attr-status');
+	var url = SCOPE.set_status_url;
+	data ={};
+	data['id'] = id;
+	data['status']=status;
+	//console.log(data);
+	layer.open({
+		type:0,
+		skin:'layui-layer-molv',
+		title:'是否提交',
+		btn:['是','否'],
+		icon:3,
+		closeBtn:2,
+		content:"是否确定更改状态",
+		scrollbar: true,
+		yes: function(){
+			todelete(url,data);
+		},
+	});
 
- 	data = {};
- 	data['id']=id;
- 	data['status']= -1;
-
- 	layer.open({
- 		type : 0,
- 		skin: 'layui-layer-molv',
- 		title:'是否提交? ',
- 		btn:['是','否'],
- 		icon:3,
- 		closeBtn:2,
- 		content:"是否确定"+message,
- 		scrollbar:true,
- 		yes: function(){
- 			todelete(url,data);
- 		},
- 	});
- });
+});
