@@ -30,7 +30,9 @@
                     <div class="input-group">
                         <span class="input-group-addon">推荐位</span>
                         <select class="form-control" name="position_id">
-                                <option value=""></option>
+                            <foreach name="positions" item="position">
+                                <option value="{$position.id}">{$position.name}</option>
+                            </foreach>
                         </select>
                     </div>
                 </div>
