@@ -119,3 +119,27 @@ $(".xiaoniucms-table #xiaoniucms-on-off").on('click',function(){
 	});
 
 });
+
+$("#xiaoniucms-push").click(function(){
+	var id = $("#select-push").val();
+	if(id==0){
+		return dialog.error('请选择推荐位');
+	}
+	push = {};
+	$("input[name='pushcheck']:checked").each(function(i){
+		push[i] =$(this).val();
+	});
+	postData ={};
+	postData['push'] = push;
+	postData['position_id'] = id;
+	//console.log(postData);return;
+	var url = SCOPE.push_url;
+	$.post(url,postData,function(result){
+		if(result.status==1){
+			return dialog.success(result.message,result['data']['jumpUrl']);
+		}
+		if(result.status==0){
+			return dialog.error(result.message);
+		}
+	},'JSON');
+});

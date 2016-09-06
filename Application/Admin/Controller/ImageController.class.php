@@ -1,7 +1,7 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
-use Thinl\Upload;
+use Think\Upload;
 
 class ImageController extends CommonController{
 	private $_uploadObj;
