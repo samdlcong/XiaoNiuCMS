@@ -82,4 +82,11 @@ class PositioncontentController extends CommonController{
 			return show(0,$e->getMessage());
 		}
 	}
+	public function setStatus(){
+		$data = array(
+			'id'=>intval($_POST['id']),
+			'status'=>intval($_POST['status']),
+		);
+		parent::setStatus($data,'PositionContent');
+	}
 }

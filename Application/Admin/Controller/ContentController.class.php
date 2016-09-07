@@ -115,24 +115,11 @@ class ContentController extends CommonController{
 		}
 	}
 	public function setStatus(){
-		try{
-			if($_POST){
-				$id = $_POST['id'];
-				$status =$_POST['status'];
-				if(!$id || !is_numeric($id)){
-					return show(0,'ID不合法');
-				}
-				$res = D("News")->updateStatusById($id,$status);
-				if($res){
-					return show(1,'操作成功');
-				}else{
-					return show(0,'操作失败');
-				}
-			}
-			return show(0,'没有提交内容');
-		}catch(Exception $e){
-			return show(0,$e->getMessage());
-		}
+		$data = array(
+			'id'=>$_POST['id'],
+			'status'=>$_POST['status'],
+		);
+		parent::setStatus($data,'News');
 	}
 	public function listorder(){
 		$listorder = $_POST['listorder'];

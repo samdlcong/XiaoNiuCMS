@@ -35,4 +35,14 @@ class PositionContentModel extends Model{
 		return $this->_db->where('id='.$id)->save($data);
 	}
 
+	public function updateStatusById($id,$status){
+		if(!$id || !is_numeric($id)){
+			throw_exception("ID不合法");
+		}
+		if(!is_numeric($status)){
+			throw_exception("status不能为非数字");
+		}
+		$data['status']= $status;
+		return $this->_db->where('id='.$id)->save($data);
+	}
 }
