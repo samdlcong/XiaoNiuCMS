@@ -31,7 +31,7 @@
                         <span class="input-group-addon">推荐位</span>
                         <select class="form-control" name="position_id">
                             <foreach name="positions" item="position">
-                                <option value="{$position.id}">{$position.name}</option>
+                                <option value="{$position.id}" <if condition="$position['id'] eq $positionId">selected="selected"</if>>{$position.name}</option>
                             </foreach>
                         </select>
                     </div>
@@ -40,7 +40,7 @@
                 <input type="hidden" name="a" value="index"/>
                 <div class="col-md-3">
                     <div class="input-group">
-                        <input class="form-control" name="title" type="text" value="" placeholder="文章标题" />
+                        <input class="form-control" name="title" type="text" value="{$title}" placeholder="文章标题" />
                 <span class="input-group-btn">
                   <button id="sub_data" type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
                 </span>
@@ -53,8 +53,8 @@
             <div class="col-lg-6">
                 <h3></h3>
                 <div class="table-responsive">
-                    <form id="singcms-listorder">
-                    <table class="table table-bordered table-hover singcms-table">
+                    <form id="xncms-listorder">
+                    <table class="table table-bordered table-hover xiaoniucms-table">
                         <thead>
                         <tr>
                             <th width="14">排序</th><!--7-->
@@ -67,14 +67,15 @@
                         </tr>
                         </thead>
                         <tbody>
+                            <volist name='contents' id="vo">
                             <tr>
-                                <td><input size=4 type='text'  name='' value=""/></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><input size=4 type='text'  name='{listorder[$vo.id]}' value="{$vo.listorder}"/></td>
+                                <td>{$vo.id}</td>
+                                <td>{$vo.title}</td>
+                                <td>{$vo.create_time|date="Y-m-d H:i",###}</td>
+                                <td>{$vo.thumb|isThumb}</td>
                                 <td>
-                                    <span  attr-status="0"  attr-id="" class="sing_cursor singcms-on-off" id="singcms-on-off" ></span>
+                                    <span  attr-status="<if condition="$vo['status'] eq 1">0<else/>1</if>"  attr-id="{$vo.id}" class="sing_cursor singcms-on-off" id="xiaoniucms-on-off" >{$vo.status|status}</span>
                                 </td>
                                 <td>
                                     <span class="sing_cursor glyphicon glyphicon-edit" aria-hidden="true" id="singcms-edit" attr-id="" ></span>
@@ -83,7 +84,7 @@
                                     </a>
                                 </td>
                             </tr>
-
+                            </volist>
                         </tbody>
                     </table>
                     </from>
