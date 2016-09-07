@@ -89,4 +89,8 @@ class PositioncontentController extends CommonController{
 		);
 		parent::setStatus($data,'PositionContent');
 	}
+
+	public function listorder(){
+		parent::listorder("PositionContent");
+	}
 }

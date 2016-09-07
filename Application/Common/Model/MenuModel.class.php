@@ -54,7 +54,7 @@ class MenuModel extends Model{
 		return $this->_db->where('menu_id='.$id)->save($data);
 	}
 
-	public function updateMenuListorderById($id,$listorder){
+	public function updateListorderById($id,$listorder){
 		if(!$id || !is_numeric($id)){
 			throw_exception("ID不合法");
 		}
