@@ -8,7 +8,6 @@ class PositionContentModel extends Model{
 		$this->_db = M("position_content");
 	}
 	public function insert($data){
-
 		return $this->_db->data($data)->add();
 	}
 	public function select($data=array(),$limit=0){
@@ -21,6 +20,19 @@ class PositionContentModel extends Model{
 		}
 		$list = $this->_db->select();
 		return $list;
+	}
+	public function find($id){
+		return $this->_db->where('id='.$id)->find();
+	}
+
+	public function updateById($id,$data){
+		if(!$id || !is_numeric($id)){
+			throw_exception('ID不合法');
+		}
+		if(!$data || !is_array($data)){
+			throw_exception('数据不合法');
+		}
+		return $this->_db->where('id='.$id)->save($data);
 	}
 
 }

@@ -78,8 +78,8 @@
                                     <span  attr-status="<if condition="$vo['status'] eq 1">0<else/>1</if>"  attr-id="{$vo.id}" class="sing_cursor singcms-on-off" id="xiaoniucms-on-off" >{$vo.status|status}</span>
                                 </td>
                                 <td>
-                                    <span class="sing_cursor glyphicon glyphicon-edit" aria-hidden="true" id="singcms-edit" attr-id="" ></span>
-                                    <a href="javascript:void(0)" id="singcms-delete"  attr-id=""  attr-message="删除">
+                                    <span class="sing_cursor glyphicon glyphicon-edit" aria-hidden="true" id="xiaoniucms-edit" attr-id="{$vo.id}" ></span>
+                                    <a href="javascript:void(0)" id="xiaoniucms-delete"  attr-id="{$vo.id}"  attr-message="删除">
                                         <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                                     </a>
                                 </td>
