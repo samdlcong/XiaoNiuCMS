@@ -48,54 +48,17 @@
           </div>
         </div>
         <div class="news-list">
-          <dl>
-            <dt>一个悲伤的故事，马云彻底被王兴抛弃了</dt>
+          <?php if(is_array($result['listNews'])): $i = 0; $__LIST__ = $result['listNews'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><dl>
+            <dt><a target="_blank" href="/index.php?c=detail&id=<?php echo ($vo["news_id"]); ?>"><?php echo ($vo["title"]); ?></a></dt>
             <dd class="news-img">
-              <img src="/Public/images/img4.jpg" alt="">
+              <a target="_blank" href="/index.php?c=detail&id=<?php echo ($vo["news_id"]); ?>"><img src="<?php echo ($vo["thumb"]); ?>" alt="" width="189px" height="189px"></a>
             </dd>
-            <dd class="news-intro">
-              手段太刚猛，吃不消，美团这块肉，马云注定无福消遣。
+            <dd class="news-intro"><?php echo ($vo["description"]); ?>
             </dd>
             <dd class="news-info">
-              秋远俊二 <span>15:22</span> 阅读(1万)
+              <?php echo ($vo["keywords"]); ?> <span><?php echo (date("Y-m-d H:i:s",$vo["create_time"])); ?></span> 阅读(0)
             </dd>
-          </dl>
-          <dl>
-            <dt>一个悲伤的故事，马云彻底被王兴抛弃了</dt>
-            <dd class="news-img">
-              <img src="/Public/images/img4.jpg" alt="">
-            </dd>
-            <dd class="news-intro">
-              手段太刚猛，吃不消，美团这块肉，马云注定无福消遣。
-            </dd>
-            <dd class="news-info">
-              秋远俊二 <span>15:22</span> 阅读(1万)
-            </dd>
-          </dl>
-          <dl>
-            <dt>一个悲伤的故事，马云彻底被王兴抛弃了</dt>
-            <dd class="news-img">
-              <img src="/Public/images/img4.jpg" alt="">
-            </dd>
-            <dd class="news-intro">
-              手段太刚猛，吃不消，美团这块肉，马云注定无福消遣。
-            </dd>
-            <dd class="news-info">
-              秋远俊二 <span>15:22</span> 阅读(1万)
-            </dd>
-          </dl>
-          <dl>
-            <dt>一个悲伤的故事，马云彻底被王兴抛弃了</dt>
-            <dd class="news-img">
-              <img src="/Public/images/img4.jpg" alt="">
-            </dd>
-            <dd class="news-intro">
-              手段太刚猛，吃不消，美团这块肉，马云注定无福消遣。
-            </dd>
-            <dd class="news-info">
-              秋远俊二 <span>15:22</span> 阅读(1万)
-            </dd>
-          </dl>
+          </dl><?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
       </div>
       <!--网站右侧信息-->
