@@ -90,4 +90,5 @@ class NewsModel extends Model{
 			);
 		return $this->_db->where($data)->select();
 	}
+
 }

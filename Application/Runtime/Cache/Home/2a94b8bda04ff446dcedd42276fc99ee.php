@@ -1,8 +1,11 @@
-<?php if (!defined('THINK_PATH')) exit();?><!doctype html>
+<?php if (!defined('THINK_PATH')) exit(); $config =D("Basic")->select(); $navs = D('Menu')->getBarMenus(); ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>sing资讯</title>
+  <title><?php echo ($config["title"]); ?></title>
+  <meta name="keywords" content="<?php echo ($config["keywords"]); ?>">
+  <meta name="description" content="<?php echo ($config["description"]); ?>">
   <link rel="stylesheet" href="/Public/css/bootstrap.min.css" type="text/css" />
   <link rel="stylesheet" href="/Public/css/home/main.css" type="text/css" />
 </head>
@@ -11,16 +14,13 @@
   <div class="navbar-inverse">
     <div class="container">
       <div class="navbar-header">
-        <a href="">
+        <a href="/">
           <img src="/Public/images/logo.png" alt="">
         </a>
       </div>
       <ul class="nav navbar-nav navbar-left">
-        <li><a href="" class="curr">首页</a></li>
-        <li><a href="">体育</a></li>
-        <li><a href="">科技</a></li>
-        <li><a href="">人文</a></li>
-        <li><a href="">汽车</a></li>
+        <li><a href="/" <?php if($result['catid'] == 0): ?>class="curr"<?php endif; ?>>首页</a></li>
+        <?php if(is_array($navs)): foreach($navs as $key=>$vo): ?><li><a href="/index.php?c=cat&id=<?php echo ($vo["menu_id"]); ?>" <?php if($vo['menu_id'] == $result['catid']): ?>class="curr"<?php endif; ?>><?php echo ($vo["name"]); ?></a></li><?php endforeach; endif; ?>
       </ul>
     </div>
   </div>
@@ -98,37 +98,38 @@
           </dl>
         </div>
       </div>
+      <!--网站右侧信息-->
       <div class="col-sm-3 col-md-3">
-        <div class="right-title">
-          <h3>文章排行</h3>
-          <span>TOP ARTICLES</span>
+  <div class="right-title">
+    <h3>文章排行</h3>
+    <span>TOP ARTICLES</span>
+  </div>
+  <div class="right-content">
+    <ul>
+      <li class="num1 curr">
+        <a href="">习近平谈气候变化</a>
+        <div class="intro">
+          中美双方应该不断挖掘合作潜力、培育合作亮点，加快双边投资协定谈判...
         </div>
-        <div class="right-content">
-          <ul>
-            <li class="num1 curr">
-              <a href="">习近平谈气候变化</a>
-              <div class="intro">
-                中美双方应该不断挖掘合作潜力、培育合作亮点，加快双边投资协定谈判...
-              </div>
-            </li>
-            <li class="num2"><a href="">普京回应俄战机被击落</a></li>
-            <li class="num3"><a href="">普京回应俄战机被击落</a</li>
-            <li class="num4"><a href="">普京回应俄战机被击落</a></li>
-            <li class="num5"><a href="">普京回应俄战机被击落</a></li>
-            <li class="num6"><a href="">普京回应俄战机被击落</a></li>
-            <li class="num7"><a href="">普京回应俄战机被击落</a></li>
-            <li class="num8"><a href="">普京回应俄战机被击落</a></li>
-            <li class="num9"><a href="">普京回应俄战机被击落</a></li>
-            <li class="num10"><a href="">普京回应俄战机被击落</a></li>
-          </ul>
-        </div>
-        <div class="right-hot">
-          <img src="/Public/images/img5.jpg" alt="">
-        </div>
-        <div class="right-hot">
-          <img src="/Public/images/img6.jpg" alt="">
-        </div>
-      </div>
+      </li>
+      <li class="num2"><a href="">普京回应俄战机被击落</a></li>
+      <li class="num3"><a href="">普京回应俄战机被击落</a</li>
+      <li class="num4"><a href="">普京回应俄战机被击落</a></li>
+      <li class="num5"><a href="">普京回应俄战机被击落</a></li>
+      <li class="num6"><a href="">普京回应俄战机被击落</a></li>
+      <li class="num7"><a href="">普京回应俄战机被击落</a></li>
+      <li class="num8"><a href="">普京回应俄战机被击落</a></li>
+      <li class="num9"><a href="">普京回应俄战机被击落</a></li>
+      <li class="num10"><a href="">普京回应俄战机被击落</a></li>
+    </ul>
+  </div>
+  <div class="right-hot">
+    <img src="/Public/images/img5.jpg" alt="">
+  </div>
+  <div class="right-hot">
+    <img src="/Public/images/img6.jpg" alt="">
+  </div>
+</div>
     </div>
   </div>
 </section>

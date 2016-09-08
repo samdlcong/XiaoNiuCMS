@@ -10,7 +10,7 @@
   <meta name="author" content="">
   <link rel="icon" href="">
 
-  <title>singcms内容管理平台</title>
+  <title>小牛CMS内容管理平台</title>
 
   <!-- Bootstrap core CSS -->
   <link href="/Public/css/bootstrap.min.css" rel="stylesheet"
