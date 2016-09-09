@@ -106,4 +106,16 @@ class NewsModel extends Model{
 		$list = $this->_db->select();
 		return $list;
 	}
+
+	public function updateCount($id,$count){
+		if(!$id || !is_numeric($id)){
+			throw_exception("ID不合法");
+		}
+		if(!is_numeric($count)){
+			throw_exception("count不能为非数字");
+		}
+
+		$data['count']=$count;
+		return $this->_db->where('news_id='.$id)->save($data);
+	}
 }

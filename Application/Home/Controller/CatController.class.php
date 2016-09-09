@@ -16,7 +16,7 @@ class CatController extends CommonController{
 		$rankNews = $this->getRank();
 
 		$page = $_REQUEST['p']?$_REQUEST['p']:1;
-		$pageSize = 20;
+		$pageSize = 2;
 		$conds =array(
 			'status'=>1,
 			'thumb'=>array('neq',''),
