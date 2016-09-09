@@ -15,8 +15,8 @@ class CommonController extends Controller{
 		return $news;
 	}
 
-	public function error(){
-		$message =$message?$message:'系统发生错误';
+	public function error($message){
+		$message = $message?$message:'系统发生错误';
 		$this->assign('message',$message);
 		$this->display('Index/error');
 	}
