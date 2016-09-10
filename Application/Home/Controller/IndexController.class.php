@@ -27,5 +27,6 @@ class IndexController extends CommonController {
 
     public function build_html(){
         $this->index('builtHtml');
+        return show(1,'缓存生成成功');
     }
 }

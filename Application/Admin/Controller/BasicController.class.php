@@ -5,6 +5,7 @@ use Think\Controller;
 class BasicController extends CommonController{
 	public function index(){
 		$res =D("Basic")->select();
+		$this->assign('type',1);
 		$this->assign('vo',$res);
 		$this->display();
 	}
@@ -26,5 +27,10 @@ class BasicController extends CommonController{
 		}else{
 			return show(0,'没有提交数据');
 		}
+	}
+
+	public function cache(){
+		$this->assign('type',2);
+		$this->display();
 	}
 }
