@@ -29,4 +29,18 @@ class IndexController extends CommonController {
         $this->index('builtHtml');
         return show(1,'缓存生成成功');
     }
+
+    public function crontab_build_html(){
+        if(APP_CRONTAB != 1){
+            die("the_file_must_exec_crontab");
+        }
+        $result= D("Basic")->select();
+        if(!$result['cacheindex']){
+            die('系统没有设置开启自动生成首页缓存的内容');
+        }
+        $this->index('builtHtml');
+    }
+
 }
+
+
