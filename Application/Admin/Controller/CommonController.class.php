@@ -55,6 +55,7 @@ class CommonController extends Controller {
 					return show(0,'ID不合法');
 				}
 				$res = D($models)->updateStatusById($id,$status);
+				//print_r($res);exit();
 				if($res){
 					return show(1,'操作成功');
 				}else{
