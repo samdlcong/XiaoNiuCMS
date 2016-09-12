@@ -31,6 +31,7 @@
       <div class="col-sm-9 col-md-9">
         <div class="banner">
           <div class="banner-left">
+            <div class="banner-info"><span>阅读数</span><i class="news_count node-<?php echo ($result['topPicNews'][0]['news_id']); ?>"><?php echo ($result['topPicNews'][0]['count']); ?></i></div>
             <a target="_blank" href="/index.php?c=detail&id=<?php echo ($result['topPicNews'][0]['news_id']); ?>"><img width="670px" height="360px" src="<?php echo ($result['topPicNews'][0]['thumb']); ?>" alt=""></a>
           </div>
           <div class="banner-right">
