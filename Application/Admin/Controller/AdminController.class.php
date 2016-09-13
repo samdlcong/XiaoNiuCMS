@@ -39,4 +39,29 @@ class AdminController extends CommonController{
 		);
 		parent::setStatus($data,'Admin');
 	}
+
+	public function personal(){
+		$res=$this->getLoginUser();
+		$user = D('Admin')->getAdminByAdminId($res['admin_id']);
+		$this->assign('vo',$user);
+		$this->display();
+	}
+
+	public function save(){
+		$user = $this->getLoginUser();
+		if(!$user){
+			return show(0,'');
+		}
+		$data['realname']=$_POST['realname'];
+		$data['email']=$_POST['email'];
+		try{
+			$id = D('Admin')->updateByAdminId($user['admin_id'],$data);
+			if($id ===false){
+				return show(0,'设置失败');
+			}
+			return show(1,'设置成功');
+		}catch(Exception $e){
+			return show(0,$e->getMessage());
+		}
+	}
 }

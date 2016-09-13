@@ -10,6 +10,9 @@ class AdminModel extends Model{
 		$res = $this->_db->where('username="'.$username.'"')->find();
 		return $res;
 	}
+	public function getAdminByAdminId($id){
+		return $this->_db->where('admin_id='.$id)->find();
+	}
 	public function getAdmins(){
 		$conds['status'] = array('neq',-1);
 		return $res =$this->_db->where($conds)->select();
@@ -42,4 +45,6 @@ class AdminModel extends Model{
 		}
 		return $this->_db->where('admin_id='.$id)->save($data);
 	}
+
+
 }

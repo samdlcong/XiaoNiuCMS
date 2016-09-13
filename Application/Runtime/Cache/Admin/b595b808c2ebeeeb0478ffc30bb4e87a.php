@@ -43,7 +43,7 @@
 <div id="wrapper">
 
     <?php
- $navs = D("Menu")->getAdminMenus(); $index ='index'; ?>
+ $navs = D("Menu")->getAdminMenus(); $username = getLoginUsername(); foreach ($navs as $k => $v) { if($v['c']=='admin'&& $username != 'admin'){ unset($navs[$k]); } } $index ='index'; ?>
 
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -57,7 +57,7 @@
     
     
     <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin <b class="caret"></b></a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><?php echo getLoginUsername() ?> <b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li>
           <a href="/index.php?m=admin&c=admin&a=personal"><i class="fa fa-fw fa-user"></i> 个人中心</a>
