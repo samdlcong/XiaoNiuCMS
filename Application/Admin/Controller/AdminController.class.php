@@ -11,7 +11,25 @@ class AdminController extends CommonController{
 	}
 
 	public function add(){
-		$this->display();
+
+		if($_POST){
+			//print_r($_POST);exit();
+			if(!$_POST['username']||$_POST['username']==''){
+				return show(0,'用户名不能为空');
+			}
+			if(!$_POST['password']||$_POST['password']==''){
+				return show(0,'密码不能为空');
+			}
+			
+			$res = D('Admin')->insert($_POST);
+			if($res){
+				return show(1,'添加成功');
+			}
+			return show(0,'添加失败');
+		}else{
+
+			$this->display();
+		}
 	}
 
 	public function setStatus(){

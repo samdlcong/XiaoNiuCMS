@@ -13,12 +13,12 @@
  
  $("#cms-button-submit").click(function(){
  	var data =$("#cms-form").serializeArray();
-
+ 	//console.log(data);
  	postData = {};
  	$(data).each(function(i){
  		postData[this.name]=this.value;
  	});
- 	//console.log(postData);
+ 	
  	url=SCOPE.save_url;
  	jump_url = SCOPE.jump_url;
  	$.post(url,postData,function(result){

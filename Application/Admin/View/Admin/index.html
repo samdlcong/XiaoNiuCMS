@@ -53,7 +53,7 @@
                                 <td>{$admin.realname}</td>
                                 <td>{$admin.lastlogintime|date="Y-m-d H:i:s",###}</td>
                                 <td><span  attr-status="<if condition="$admin['status'] eq 1">0<else/>1</if>"  attr-id="{$admin.admin_id}" class="sing_cursor singcms-on-off" id="xiaoniucms-on-off" >{$admin.status|status}</span></td>
-                                <td>    <a href="javascript:void(0)" attr-id="" id="xiaoniucms-delete"  attr-a="admin" attr-message="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a></td>
+                                <td>    <a href="javascript:void(0)" attr-id="{$admin.admin_id}" id="xiaoniucms-delete"  attr-a="admin" attr-message="删除"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a></td>
                             </tr>
                         </volist>
 

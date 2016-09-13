@@ -24,13 +24,13 @@ class LoginController extends Controller {
     		return show(0,'密码不能为空');
     	}
     	$res = D('Admin')->getAdminByUsername($username);
-    	if(!$res){
+    	if(!$res || $res['status']!=1){
     		return show(0,'该用户不存在');
     	}
     	if($res['password'] != getMd5Password($password)){
     		return show(0,'密码错误');
     	}
-
+        D('Admin')->updateByAdminId($res['admin_id'],array('lastlogintime'=>time()));
         session('adminUser',$res);
     	return show(1,'登录成功');
     }  
