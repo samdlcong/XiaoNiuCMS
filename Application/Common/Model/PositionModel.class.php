@@ -22,4 +22,9 @@ class PositionModel extends Model{
 		$list = $this ->_db->where($conditions)->order('id')->select();
 		return $list;
 	}
+
+	public function getPositionCount($data=array()){
+		return $this->_db->where($data)->count();
+	}
+	
 }
