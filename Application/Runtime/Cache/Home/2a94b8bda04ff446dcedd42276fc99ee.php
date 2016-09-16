@@ -37,7 +37,7 @@
           <div class="banner-right">
             <ul>
               <?php if(is_array($result['topSmallNews'])): $i = 0; $__LIST__ = $result['topSmallNews'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li>
-                <a target="_blank" href="/index.php?c=detail&id=<?php echo ($vo["news_id"]); ?>"></a><img width="150" height="113" src="<?php echo ($vo["thumb"]); ?>" alt="<?php echo ($vo["title"]); ?>">
+                <a target="_blank" href="/index.php?c=detail&id=<?php echo ($vo["news_id"]); ?>"><img width="150" height="113" src="<?php echo ($vo["thumb"]); ?>" alt="<?php echo ($vo["title"]); ?>"></a>
               </li><?php endforeach; endif; else: echo "" ;endif; ?>
             </ul>
           </div>

@@ -50,8 +50,8 @@
 					<div class="form-group">
 						<label for="inputPassword3" class="col-sm-2 control-label">是否自动备份数据库:</label>
 						<div class="col-sm-5">
-							<input type="radio" name="dumpmysql" id="optionRadiosInline1" value="1" />是
-							<input type="radio" name="dumpmysql" id="optionRadiosInline2" value="0" />否
+							<input type="radio" name="dumpmysql" id="optionRadiosInline1" value="1" <if condition="$vo['dumpmysql'] eq 1">checked="checked"</if>/>是
+							<input type="radio" name="dumpmysql" id="optionRadiosInline2" value="0" <if condition="$vo['dumpmysql'] eq 0">checked="checked"</if> />否
 						</div>
 					</div>
 					<div class="form-group">
