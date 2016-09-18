@@ -16,10 +16,10 @@
 
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-dashboard"></i>  <a href="/admin.php?c=menu">菜单管理</a>
+                        <i class="fa fa-dashboard"></i>  <a href="/admin.php?c=position">推荐位管理</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-edit"></i> 编辑
+                        <i class="fa fa-edit"></i> 修改
                     </li>
                 </ol>
             </div>
@@ -31,9 +31,9 @@
 
                 <form class="form-horizontal" id="cms-form">
                     <div class="form-group">
-                        <label for="inputname" class="col-sm-2 control-label">菜单名:</label>
+                        <label for="inputname" class="col-sm-2 control-label">推荐位名:</label>
                         <div class="col-sm-5">
-                            <input type="text" name="name" class="form-control" id="inputname" placeholder="请填写菜单名" value="{$menu.name}">
+                            <input type="text" name="name" class="form-control" id="inputname" placeholder="请填写推荐位" value={$position.name}>
                         </div>
                     </div>
                     <!--<div class="form-group">
@@ -47,32 +47,32 @@
                             </select>
                         </div>
                     </div>-->
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">菜单类型:</label>
                         <div class="col-sm-5">
-                            <input type="radio" name="type" id="optionsRadiosInline1" value="1" <if condition="$menu.type eq 1">checked</if>> 后台菜单
-                            <input type="radio" name="type" id="optionsRadiosInline2" value="0" <if condition="$menu.type eq 0">checked</if>> 前端栏目
-                        </div>
+                            <input type="radio" name="type" id="optionsRadiosInline1" value="1" checked> 后台菜单
+                            <input type="radio" name="type" id="optionsRadiosInline2" value="0"> 前端栏目
+                        </div> -->
 
-                    </div>
+                   <!--  </div> -->
                     <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">模块名:</label>
+                        <label for="inputPassword3" class="col-sm-2 control-label">推荐位描述:</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" name="m" id="inputPassword3" placeholder="模块名如admin" value="{$menu.m}">
+                            <input type="text" class="form-control" name="description" id="inputPassword3" placeholder="推荐位描述" value="{$position.description}">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">控制器:</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" name="c" id="inputPassword3" placeholder="控制器如index" value="{$menu.c}">
+                            <input type="text" class="form-control" name="c" id="inputPassword3" placeholder="控制器如index">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">方法:</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" name="f" id="inputPassword3" placeholder="方法名如index" value="{$menu.f}">
+                            <input type="text" class="form-control" name="f" id="inputPassword3" placeholder="方法名如index">
                         </div>
-                    </div>
+                    </div> -->
                     <!--<div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">是否为前台菜单:</label>
                         <div class="col-sm-5">
@@ -85,15 +85,16 @@
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">状态:</label>
                         <div class="col-sm-5">
-                            <input type="radio" name="status" id="optionsRadiosInline1" value="1" <if condition="$menu.status eq 1">checked</if>> 开启
-                            <input type="radio" name="status" id="optionsRadiosInline2" value="0" <if condition="$menu.status eq 0"></if>> 关闭
+                            <input type="radio" name="status" id="optionsRadiosInline1" value="1" checked> 开启
+                            <input type="radio" name="status" id="optionsRadiosInline2" value="0"> 关闭
                         </div>
 
                     </div>
-                    <input type="hidden" name="menu_id" value="{$menu.menu_id}">
+                    <input type="hidden" name="id" value="{$position.id}">
+
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="button" class="btn btn-default" id="cms-button-submit">更新</button>
+                            <button type="button" class="btn btn-default" id="cms-button-submit">提交</button>
                         </div>
                     </div>
                 </form>
@@ -116,8 +117,8 @@
 <script>
 
     var SCOPE = {
-        'save_url' : '/admin.php?c=menu&a=add',
-        'jump_url' : '/admin.php?c=menu',
+        'save_url' : '/admin.php?c=position&a=add',
+        'jump_url' : '/admin.php?c=position',
     }
 </script>
 <include file="Index/footer" />
