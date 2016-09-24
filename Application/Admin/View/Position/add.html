@@ -16,7 +16,7 @@
 
                 <ol class="breadcrumb">
                     <li>
-                        <i class="fa fa-dashboard"></i>  <a href="/admin.php?c=menu">菜单管理</a>
+                        <i class="fa fa-dashboard"></i>  <a href="/admin.php?c=position">推荐位管理</a>
                     </li>
                     <li class="active">
                         <i class="fa fa-edit"></i> 添加
@@ -31,9 +31,9 @@
 
                 <form class="form-horizontal" id="cms-form">
                     <div class="form-group">
-                        <label for="inputname" class="col-sm-2 control-label">菜单名:</label>
+                        <label for="inputname" class="col-sm-2 control-label">推荐位名:</label>
                         <div class="col-sm-5">
-                            <input type="text" name="name" class="form-control" id="inputname" placeholder="请填写菜单名">
+                            <input type="text" name="name" class="form-control" id="inputname" placeholder="请填写推荐位">
                         </div>
                     </div>
                     <!--<div class="form-group">
@@ -47,21 +47,21 @@
                             </select>
                         </div>
                     </div>-->
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">菜单类型:</label>
                         <div class="col-sm-5">
                             <input type="radio" name="type" id="optionsRadiosInline1" value="1" checked> 后台菜单
                             <input type="radio" name="type" id="optionsRadiosInline2" value="0"> 前端栏目
-                        </div>
+                        </div> -->
 
-                    </div>
+                   <!--  </div> -->
                     <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">模块名:</label>
+                        <label for="inputPassword3" class="col-sm-2 control-label">推荐位描述:</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" name="m" id="inputPassword3" placeholder="模块名如admin">
+                            <input type="text" class="form-control" name="description" id="inputPassword3" placeholder="推荐位描述">
                         </div>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">控制器:</label>
                         <div class="col-sm-5">
                             <input type="text" class="form-control" name="c" id="inputPassword3" placeholder="控制器如index">
@@ -72,7 +72,7 @@
                         <div class="col-sm-5">
                             <input type="text" class="form-control" name="f" id="inputPassword3" placeholder="方法名如index">
                         </div>
-                    </div>
+                    </div> -->
                     <!--<div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">是否为前台菜单:</label>
                         <div class="col-sm-5">
@@ -116,8 +116,8 @@
 <script>
 
     var SCOPE = {
-        'save_url' : '/admin.php?c=menu&a=add',
-        'jump_url' : '/admin.php?c=menu',
+        'save_url' : '/admin.php?c=position&a=add',
+        'jump_url' : '/admin.php?c=position',
     }
 </script>
 <include file="Index/footer" />
