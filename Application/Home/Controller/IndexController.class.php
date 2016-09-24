@@ -20,9 +20,9 @@ class IndexController extends CommonController {
         ));
         if($type="buildHtml"){
             $this->buildHtml('index',HTML_PATH,'Index/index');
-        }else{
-            $this->display();
         }
+        $this->display("Index/index");
+        
     }
 
     public function build_html(){
